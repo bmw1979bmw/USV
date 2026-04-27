@@ -1,0 +1,119 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by USV.rc
+//
+#define IDC_SPEED                       1
+#define IDC_SPEED_CMD                   3
+#define IDD_ABOUTBOX                    100
+#define IDD_USV_FORM              101
+#define IDP_SOCKETS_INIT_FAILED         104
+#define IDR_MAINFRAME                   128
+#define IDR_MAINFRAME1                  128
+#define IDB_SYSID                       130
+#define IDR_POPUP_GRAPH_DISP            130
+#define IDB_SYSIDSEL                    131
+#define IDD_TXPARAMS                    131
+#define IDR_POPUP_GRAPH_DISP1           131
+#define IDR_MAINVIEW                    132
+#define IDD_FORMULAR                    133
+#define IDR_CRIUSERTYPE                 133
+#define IDC_ADD_FORM                    1002
+#define IDC_KURS                        1003
+#define IDC_SAVE_FORM                   1003
+#define IDC_KURS_CMD                    1004
+#define IDC_A                           1005
+#define IDC_SU_KURS_CMD                 1005
+#define IDC_DRIVE                       1006
+#define IDC_A_CMD                       1006
+#define IDC_ZIRC                        1007
+#define IDC_SU_SPEED                    1008
+#define IDC_OK                          1010
+#define IDC_T_CMD_K                     1010
+#define IDC_NOUPDATE                    1011
+#define IDC_T_CMD_V                     1011
+#define IDC_UPR_SPEED                   1014
+#define IDC_ZIRC_CMD                    1014
+#define IDC_UPR_KURS                    1015
+#define IDC_SU_SPEED_CMD                1015
+#define IDC_BUPR                        1019
+#define IDC_BOTN                        1025
+#define IDC_EDIT1                       1026
+#define IDC_EDIT2                       1027
+#define IDC_EDIT3                       1028
+#define IDC_EDIT4                       1029
+#define IDC_EDIT5                       1030
+#define IDC_EDIT6                       1031
+#define IDC_EDIT7                       1032
+#define IDC_EDIT8                       1033
+#define IDC_EDIT9                       1034
+#define IDC_EDIT10                      1035
+#define IDC_EDIT11                      1036
+#define ID_DEBUG_FIRST                  2000
+#define ID_DEBUG_NODETECT               2000
+#define ID_DEBUG_NONOISES               2001
+#define ID_DEBUG_NOSIGNALS              2002
+#define ID_DEBUG_NORAYS                 2003
+#define ID_DEBUG_NONOISERAND            2004
+#define ID_DEBUG_NOSEANOISES            2005
+#define ID_DEBUG_NOCARNOISES            2006
+#define ID_DEBUG_NOSPECTRUM             2007
+#define ID_DEBUG_NOADDACL               2008
+#define ID_DEBUG_NOADDNBN               2009
+#define ID_DEBUG_NOADDWBN               2010
+#define ID_DEBUG_SHOWSIGNAL             2011
+#define ID_DEBUG_XTEST                  2012
+#define ID_DEBUG_YTEST                  2013
+#define ID_DEBUG_ZTEST                  2014
+#define ID_DEBUG_NOUPDATE               2015
+#define ID_DEBUG_UPDATEVISIBLE          2016
+#define ID_DEBUG_SEANOISE1              2017
+#define ID_DEBUG_2018                   2018
+#define ID_DEBUG_2019                   2019
+#define ID_DEBUG_SHOWACL                2019
+#define ID_DEBUG_2020                   2020
+#define ID_DEBUG_2021                   2021
+#define ID_DEBUG_NOREVNOISES            2021
+#define ID_DEBUG_2022                   2022
+#define ID_DEBUG_2023                   2023
+#define ID_DEBUG_2024                   2024
+#define ID_DEBUG_2025                   2025
+#define ID_DEBUG_2026                   2026
+#define ID_DEBUG_2027                   2027
+#define ID_DEBUG_2028                   2028
+#define ID_DEBUG_2029                   2029
+#define ID_DEBUG_2030                   2030
+#define ID_DEBUG_2031                   2031
+#define ID_DEBUG_LAST                   2031
+#define ID_PORT_WORLD                   32771
+#define ID_PORT_MONITOR                 32772
+#define ID_RUN                          32773
+#define ID_TRANSMITT                    32774
+#define ID_POPUP_BRIGHT                 32774
+#define ID_ME                           32775
+#define ID_POPUP_SATUR                  32775
+#define ID_LEFT                         32776
+#define ID_POPUP_CONTRAST               32776
+#define ID_RIGHT                        32777
+#define ID_POPUP_LOGDB                  32777
+#define ID_UP                           32778
+#define ID_POPUP_X20                    32778
+#define ID_DOWN                         32779
+#define ID_POPUP_BAR                    32779
+#define ID_HOME                         32780
+#define ID_POPUP_LONKMAP                32780
+#define ID_END                          32781
+#define ID_WHATSIT                      32781
+#define ID_ENTER                        32782
+#define ID_POPUP_TEST                   32782
+#define ID_POPUP_INFO                   32787
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        134
+#define _APS_NEXT_COMMAND_VALUE         32783
+#define _APS_NEXT_CONTROL_VALUE         1014
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif

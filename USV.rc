@@ -1,0 +1,499 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 25, 1\r\n"
+    "#pragma code_page(1251)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\USV.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\idr_USV.ico"
+IDR_CRIUSERTYPE         ICON    DISCARDABLE     "res\\MainDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+IDB_SYSIDSEL            BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+IDB_SYSID               BITMAP  DISCARDABLE     "res\\sysidsel.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_APP_ABOUT
+    SEPARATOR
+    BUTTON      ID_DEBUG_NOUPDATE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About USV...",               ID_APP_ABOUT
+    END
+END
+
+IDR_POPUP_GRAPH_DISP MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Инфо",                        ID_POPUP_INFO
+        MENUITEM SEPARATOR
+        MENUITEM "Логарифм",                    ID_POPUP_LOGDB
+        MENUITEM "x 20",                        ID_POPUP_X20
+        MENUITEM "Bar",                         ID_POPUP_BAR
+        MENUITEM "Заливка",                     ID_POPUP_LONKMAP
+        MENUITEM SEPARATOR
+        POPUP "Палитра"
+        BEGIN
+            MENUITEM SEPARATOR
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Оттенок",                     ID_POPUP_SATUR
+        MENUITEM "Контраст",                    ID_POPUP_CONTRAST
+        MENUITEM "Яркость",                     ID_POPUP_BRIGHT
+        MENUITEM SEPARATOR
+        MENUITEM "Test",                        ID_POPUP_TEST
+    END
+    MENUITEM "ID_WHATSIT",                  ID_WHATSIT
+END
+
+IDR_POPUP_GRAPH_DISP1 MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Инфо",                        ID_POPUP_INFO
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_MAINVIEW ACCELERATORS DISCARDABLE 
+BEGIN
+    VK_DOWN,        ID_DOWN,                VIRTKEY, NOINVERT
+    VK_END,         ID_END,                 VIRTKEY, NOINVERT
+    VK_HOME,        ID_HOME,                VIRTKEY, NOINVERT
+    VK_LEFT,        ID_LEFT,                VIRTKEY, NOINVERT
+    VK_RETURN,      ID_ENTER,               VIRTKEY, NOINVERT
+    VK_RIGHT,       ID_RIGHT,               VIRTKEY, NOINVERT
+    VK_UP,          ID_UP,                  VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About USV"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "USV Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2001",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_USV_FORM DIALOG DISCARDABLE  0, 0, 242, 173
+STYLE WS_CHILD
+FONT 8, "MS SANS SERIF"
+BEGIN
+    EDITTEXT        IDC_EDIT1,21,11,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,21,25,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,21,39,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,21,53,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,21,67,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,21,81,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,21,95,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT10,45,121,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT11,186,121,35,12,ES_AUTOHSCROLL
+    CONTROL         "Управлять",IDC_DRIVE,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE,190,138,42,14
+    RTEXT           "X",IDC_STATIC,8,13,8,8
+    RTEXT           "Y",IDC_STATIC,8,27,8,8
+    GROUPBOX        "MParams",IDC_STATIC,4,1,58,110
+    RTEXT           "Z",IDC_STATIC,8,41,8,8
+    RTEXT           "K",IDC_STATIC,8,55,8,8
+    RTEXT           "V",IDC_STATIC,8,69,8,8
+    RTEXT           "L",IDC_STATIC,7,83,8,8
+    RTEXT           "D",IDC_STATIC,8,97,8,8
+    GROUPBOX        "XParams",IDC_STATIC,4,112,228,23
+    RTEXT           "dwNoises",IDC_STATIC,10,123,30,8
+    RTEXT           "dwAcFlags",IDC_STATIC,148,123,33,8
+    PUSHBUTTON      "OK",IDC_OK,104,153,35,14
+    CONTROL         "Не обновлять",IDC_NOUPDATE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,8,138,61,10
+    GROUPBOX        "Управляющее  воздействие",IDC_STATIC,89,1,143,110
+    LTEXT           "Курс, град",IDC_STATIC,96,10,41,9
+    EDITTEXT        IDC_KURS,189,10,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_A,189,23,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ZIRC,189,36,41,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Ok",IDC_UPR_KURS,144,53,33,10
+    EDITTEXT        IDC_SPEED,189,72,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SU_SPEED,189,85,41,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Ok",IDC_UPR_SPEED,144,97,33,10
+    LTEXT           "Угол  закладки  рулей",IDC_STATIC,96,24,73,9
+    LTEXT           "Направление  циркуляции",IDC_STATIC,96,37,91,9
+    LTEXT           "Скорость, уз",IDC_STATIC,96,73,83,9
+    LTEXT           "Способ  торможения",IDC_STATIC,97,86,76,9
+    EDITTEXT        IDC_EDIT8,39,153,35,12,ES_AUTOHSCROLL
+    RTEXT           "V",IDC_STATIC,26,155,8,8
+END
+
+IDD_FORMULAR DIALOG DISCARDABLE  0, 0, 306, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Формуляр  ввода"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,134,167,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,190,167,50,14
+    PUSHBUTTON      "Считать ",IDC_ADD_FORM,40,167,42,14
+    PUSHBUTTON      "Сохранить",IDC_SAVE_FORM,85,167,44,14
+    GROUPBOX        "Управляющее  воздействие",-1,11,36,143,99
+    LTEXT           "Курс, град",-1,18,43,41,9
+    EDITTEXT        IDC_KURS_CMD,111,43,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SU_KURS_CMD,111,56,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_A_CMD,111,69,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ZIRC_CMD,111,82,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SPEED_CMD,111,101,41,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SU_SPEED_CMD,111,114,41,12,ES_AUTOHSCROLL
+    LTEXT           "Способ  управления",-1,18,57,73,9
+    LTEXT           "Угол  закладки  рулей",-1,18,70,73,9
+    LTEXT           "Направление  циркуляции",-1,18,83,91,9
+    LTEXT           "Скорость, уз",-1,18,102,83,9
+    LTEXT           "Способ  торможения",-1,19,115,76,9
+    EDITTEXT        IDC_T_CMD_K,256,65,41,12,ES_AUTOHSCROLL
+    LTEXT           "Время подачи,mc",-1,163,66,91,9
+    EDITTEXT        IDC_T_CMD_V,256,108,41,12,ES_AUTOHSCROLL
+    LTEXT           "Время подачи,mc",-1,163,109,91,9
+    CONTROL         "Управление",IDC_BUPR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,116,18,69,11
+    CONTROL         "Относительность управления курсом",IDC_BOTN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,90,141,158,11
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "USV MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "USV\0"
+            VALUE "LegalCopyright", "Copyright (C) 2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "USV.EXE\0"
+            VALUE "ProductName", "USV Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME1          "USV\n\nUSV\n\n\nUSV.Document\nUSV Document"
+    129                     "."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "USV"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_DEBUG_NODETECT       "No Detect\nNo Detect"
+    ID_DEBUG_NONOISES       "No noises\nNo noises"
+    ID_DEBUG_NOSIGNALS      "No signals\nNo signals"
+    ID_DEBUG_NORAYS         "No raystruct\nNo raystruct"
+    ID_DEBUG_NONOISERAND    "No random noises\nNo random noises"
+    ID_DEBUG_NOSEANOISES    "\nNo sea noises"
+    ID_DEBUG_NOCARNOISES    "\nNo car noises"
+    ID_DEBUG_NOSPECTRUM     "\nNo Spectrum"
+    ID_DEBUG_NOADDACL       "\nNo ACL"
+    ID_DEBUG_NOADDNBN       "\nNo NBN"
+    ID_DEBUG_NOADDWBN       "\nNo WBN"
+    ID_DEBUG_SHOWSIGNAL     "Показывать обрабатываемые сигналы\nShow signals"
+    ID_DEBUG_XTEST          "Рандомизация по сумме\nРежим X"
+    ID_DEBUG_YTEST          "Y-test\nY-test(Моё!)"
+    ID_DEBUG_ZTEST          "\n-Not used-"
+    ID_DEBUG_NOUPDATE       "\nDon't Update"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_DEBUG_UPDATEVISIBLE  "\nUpdate only visible"
+    ID_DEBUG_SEANOISE1      "Sea = 1\nSea=1"
+    ID_DEBUG_SHOWACL        "Показывать входящие Acl'и \nShow Acls"
+    ID_DEBUG_NOREVNOISES    "\nNo rev noises"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_TRANSMITT            "Излучить\nИзлучить"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 25, 1
+#pragma code_page(1251)
+#endif //_WIN32
+#include "res\USV.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
