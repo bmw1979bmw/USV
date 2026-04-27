@@ -1,0 +1,29 @@
+// читает строку до возврата каретки 
+// по аналогии с CStdioFile 
+
+LPTSTR ReadString(
+   CStandFile &file,
+   LPTSTR lpsz,
+   UINT nMax 
+   ) 
+{
+   LPCTSTR pointer = lpsz;
+   
+   if (nMax <= 0)
+      return NULL;
+   while (--nMax)
+   {
+      char c;
+      if ( file.Read(&c,1) == 0 ) {
+         if ( pointer == lpsz ) return NULL;
+      } else {
+         break;
+      }
+      if ((*pointer++ = c) == '\n') break;
+      
+   }
+   
+   *pointer = 0;
+   
+   return lpsz;
+}

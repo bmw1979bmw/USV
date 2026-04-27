@@ -1,0 +1,11 @@
+
+__asm {
+	cdq
+	neg eax
+	adc edx,edx
+	mov eax,edx
+	};
+
+int sign(int x) {
+	return (x>0)-(x<0);
+}

@@ -1,0 +1,33 @@
+IDD_TXPARAMS DIALOG DISCARDABLE  0, 0, 108, 207
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Параметры движения"
+FONT 8, "MS SANS SERIF"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,10,188,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,60,188,37,14
+    RTEXT           "км, X",200,7,12,50,8
+    EDITTEXT        100,62,10,35,12,ES_AUTOHSCROLL
+    RTEXT           "км, Y",201,7,27,50,8
+    EDITTEXT        101,62,25,35,12,ES_AUTOHSCROLL
+    GROUPBOX        "MParams",IDC_STATIC,5,1,98,168
+    RTEXT           "глубина,м Z",IDC_STATIC,7,42,50,8
+    EDITTEXT        102,62,40,35,12,ES_AUTOHSCROLL
+    RTEXT           "курс,°  K",IDC_STATIC,7,57,50,8
+    EDITTEXT        103,62,55,35,12,ES_AUTOHSCROLL
+    RTEXT           "скорость,уз V",204,7,72,50,8
+    EDITTEXT        104,62,70,35,12,ES_AUTOHSCROLL
+    RTEXT           "крен,° L",IDC_STATIC,7,87,50,8
+    EDITTEXT        105,62,85,35,12,ES_AUTOHSCROLL
+    RTEXT           "дифферент,° D",IDC_STATIC,7,102,50,8
+    EDITTEXT        106,62,100,35,12,ES_AUTOHSCROLL
+    GROUPBOX        "XParams",IDC_STATIC,5,112,98,57
+    RTEXT           "dwNoises",207,7,122,50,8
+    EDITTEXT        107,62,120,35,12,ES_AUTOHSCROLL
+    RTEXT           "dwAcFlags",208,7,137,50,8
+    EDITTEXT        108,62,135,35,12,ES_AUTOHSCROLL
+    LTEXT           "1 - отражатель\n4 - приёмник",
+                    IDC_STATIC,8,150,93,17
+    CONTROL         "СИ !!!",300,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,173,
+                    98,10
+END
+

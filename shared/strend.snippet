@@ -1,0 +1,9 @@
+// оканчивается ли строка на указанный паттерн
+int __cdecl strend(const char *str, const char *end)
+{ 
+   int L1 = strlen(str);
+   int L2 = strlen(end);
+   if ( L1 < L2 ) return 1;
+   return stricmp(str+L1-L2, end);
+}
+
