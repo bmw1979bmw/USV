@@ -1,0 +1,36 @@
+/*
+int IsNumber(TCHAR B)
+{  // >=3-int, >=2-float
+   if ( B >= _T('0') && B <= _T('9') ) return 3;
+   if ( B == _T('-') || B == _T('+') ) return 3;
+   if ( B == _T('.') ) return 2;
+   if ( B == _T('e') || B == _T('E') ) return 1;     // e не может быть первой!
+   return 0;
+}
+*/
+  // не оптимально
+float ExtractFloat(LPCTSTR szStr)
+{  // ищет в строке флоат и возвращает его
+   int flags = 1;
+   LPCTSTR pp = szStr;
+   char buf[128];
+   int delims = flags;
+   int k=0;
+   BYTE b;
+   if ( delims == 1 ) delims++; // e не может быть первой!
+
+   do {
+      k = 0;
+      do {
+         b = *pp++;
+      } while( b && IsNumber(b) < delims );  // skip delimiters
+      
+      while( b && IsNumber(b) >= flags ) {
+         buf[k++] = b;
+         b = *pp++;
+      }
+   } while( b && k == 1 && (*buf == 'e' || *buf == '.' ) );
+      
+   buf[k]=0;
+   return (float)strtod(buf,0);
+}

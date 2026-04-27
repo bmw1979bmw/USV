@@ -1,0 +1,9 @@
+// имя директория точка или две точки - для FindFirstFile/
+int is_points_dir(const char *dir)
+{
+   if ( *dir != '.' ) return FALSE;
+   if ( !*++dir ) return TRUE;
+   if ( *dir != '.' ) return FALSE;
+   if ( !*++dir ) return TRUE;
+   return FALSE;
+}

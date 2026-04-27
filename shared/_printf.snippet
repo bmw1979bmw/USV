@@ -1,0 +1,14 @@
+// русский printf 
+void _printf(PCSTR Format, ...)
+{
+	char sz_buffer[1024];
+	va_list va;
+	va_start (va, Format);
+	_vsnprintf(sz_buffer, sizeof(sz_buffer)-1, Format, va);
+	va_end(va);
+	CharToOem(sz_buffer,sz_buffer);
+	printf(sz_buffer);
+	return;
+}
+#undef printf
+#define printf _printf

@@ -1,0 +1,8 @@
+float Bearing(TMParams *we, TMParams *target)
+{
+   float  dx = target->X - we->X;
+   float  dy = target->Y - we->Y;
+   float   pel=(float)atan2(dx,dy);
+   if ( pel < 0 ) pel += M_2PI;
+   return pel;
+}

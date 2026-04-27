@@ -1,0 +1,40 @@
+// как сделать перебор For_each для всех элементов в Map
+// вызвав у каждого указанную функцию
+
+template<class TList> class CWLists 
+{
+   CTypedPtrMap<CMapStringToPtr,CString,TList*> m_Map;
+
+public:
+
+   template<class _Fn> void For_each(_Fn _Op)
+   {
+      POSITION pos = m_Map.GetStartPosition();
+      CString sKey;
+      TList *p;
+      while ( pos ) {
+         m_Map.GetNextAssoc(pos,sKey,p);
+         (p->*_Op)();
+      }
+      Change();
+   }
+
+};
+
+
+
+class CWComputer : public CWBase
+{
+public:
+   void CheckStateUpdate()
+   {
+	...
+   }
+};
+
+
+main() {
+	CWLists<CWComputer> m_Computers;
+
+	m_Computers.For_each(CWComputer::CheckStateUpdate);
+}

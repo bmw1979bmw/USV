@@ -1,0 +1,5 @@
+int BitWeight(DWORD c) {
+	int count=0;
+	for (; c ;count++) c=c&(c-1);
+	return count;
+}

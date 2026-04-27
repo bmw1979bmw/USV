@@ -1,0 +1,9 @@
+перо с круглыми точками толщиной 3
+         CPen pn;
+         LOGBRUSH lb = {BS_SOLID, m_Color, 0};
+         DWORD t[2] = {1,4};
+         pn.CreatePen(PS_USERSTYLE|PS_GEOMETRIC,3,&lb,2,t);
+
+лучше так
+         LOGBRUSH lb = {BS_SOLID, doc->m_Color[ch], 0};
+         pn.CreatePen(PS_DOT|PS_ENDCAP_SQUARE|PS_GEOMETRIC,2,&lb,0,NULL);

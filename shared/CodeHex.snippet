@@ -1,0 +1,55 @@
+// вычисление контрольной суммы строки (независимо от регистра)
+__inline DWORD CodeHex(const char *s)
+{
+   LARGE_INTEGER t;
+   t.HighPart = 0;
+   t.LowPart  = 0x1D9D0C3;
+   char *mem = new char[strlen(s)+1]; 
+   strcpy(mem,s);
+   char *c = mem;
+   CharUpper(c);
+   while ( *c ) {
+//      unsigned char b = *c;
+      t.QuadPart <<= 1;
+      t.QuadPart += (unsigned char)*c;
+      if ( t.HighPart ) {
+         t.LowPart += t.HighPart;
+         t.HighPart = 0;
+      }
+      c++;
+   }
+   delete mem;
+   return t.LowPart;
+}
+
+
+// просто строчку
+__inline DWORD CodeHex(const char *s)
+{
+   unsigned __int64 t = 0x1D9D0C3;
+
+   const char *c = s;
+   while ( *c ) {
+      if ( (LONG)(DWORD)t < 0 ) {
+         ((DWORD&)t) <<= 1;
+         t += 0x100000000i64;//((unsigned char)*c)+1;
+      } else {
+         ((DWORD&)t) <<= 1;
+      }
+
+      t += (unsigned char)*c;
+BETTER 
+лучше суммировать кубы символов так:
+      DWORD b = (unsigned char)*c;
+      t +=  b*b*b;
+
+      
+      DWORD d = t>>32;
+      if ( d ) {
+         t += d;
+         t = (DWORD)t;
+      }
+      c++;
+   }
+   return  (DWORD)t;
+}

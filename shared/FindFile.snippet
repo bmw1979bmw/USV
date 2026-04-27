@@ -1,0 +1,4 @@
+// перебор всех файлов в одном for
+WIN32_FIND_DATA wfd;   
+for (HANDLE h=FindFirstFile(name,&wfd);h!=INVALID_HANDLE_VALUE;h=FindNextFile(h,&wfd)?h:(FindClose(h),INVALID_HANDLE_VALUE) ) {
+}

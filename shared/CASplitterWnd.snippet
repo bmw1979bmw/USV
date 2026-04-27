@@ -1,0 +1,21 @@
+#pragma once
+// сплиттер, который отрисовывает себя не как CLIENT_EDGE, 
+// а как STATIC_EDGE - менее утопленные окна
+
+class CASplitterWnd : public CSplitterWnd
+{
+   virtual void OnDrawSplitter(CDC* pDC, ESplitType nType, const CRect& rectArg)
+   {     
+      if ( nType != splitBorder || !pDC ) {
+         CSplitterWnd::OnDrawSplitter(pDC,nType,rectArg);
+         return;
+      }
+      ASSERT_VALID(pDC);
+      CRect rect = rectArg;
+      ASSERT(afxData.bWin4);
+      pDC->Draw3dRect(rect, afxData.clrBtnShadow, afxData.clrBtnHilite);
+      rect.InflateRect(-CX_BORDER, -CY_BORDER);
+      pDC->Draw3dRect(rect, afxData.clrBtnFace/*afxData.clrWindowFrame*/, afxData.clrBtnFace);
+      return;
+   }
+};

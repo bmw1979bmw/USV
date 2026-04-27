@@ -1,0 +1,34 @@
+#if(0)
+class CMapStringToLong : public CMapStringToPtr
+{
+public:
+   typedef CMapStringToPtr BASE_CLASS;
+   typedef LONG VALUE;
+   typedef LPCTSTR KEY;
+   
+   // Construction
+   CMapStringToLong(int nBlockSize = 10)
+      : BASE_CLASS(nBlockSize) { }
+   
+   // Lookup
+   BOOL Lookup( BASE_CLASS::BASE_ARG_KEY key, VALUE& rValue) const
+   { return BASE_CLASS::Lookup(key, (BASE_CLASS::BASE_VALUE&)rValue); }
+   
+   // Lookup and add if not there
+   VALUE& operator[]( BASE_CLASS::BASE_ARG_KEY key)
+   { return (VALUE&)BASE_CLASS::operator[](key); }
+   
+   // add a new key (key, value) pair
+   void SetAt(KEY key, VALUE newValue)
+   { BASE_CLASS::SetAt(key, (void*)newValue); }
+   
+   // removing existing (key, ?) pair
+   BOOL RemoveKey(KEY key)
+   { return BASE_CLASS::RemoveKey(key); }
+   
+   // iteration
+   void GetNextAssoc(POSITION& rPosition, KEY& rKey, VALUE& rValue) const
+   { BASE_CLASS::GetNextAssoc(rPosition, (BASE_CLASS::BASE_KEY&)rKey,
+			(BASE_CLASS::BASE_VALUE&)rValue); }
+};
+#endif      

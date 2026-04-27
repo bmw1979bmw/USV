@@ -1,0 +1,20 @@
+inline DWORD *dmemset(DWORD *_S, DWORD _C, size_t _N)
+        {DWORD *_Su = _S;
+        for (; 0 < _N; ++_Su, --_N) *_Su = _C;
+        return (_S); }
+
+inline void dmemset_asm(DWORD *_S, DWORD _C, size_t _N)
+{  // заполнение памяти по 32 бита.соunt - размер памяти в 4-х байтовых словах
+   _asm
+   {
+      push edi
+      push ecx
+      mov edi,_S
+      mov ecx,_N
+      mov eax,_C      
+      rep stosd
+      pop ecx
+      pop edi
+   }
+}
+
