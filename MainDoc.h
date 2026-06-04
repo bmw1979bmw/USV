@@ -88,7 +88,7 @@ protected: // create from serialization only
       CString sName; // имя объекта
       UINT nNum; // номер объекта
    } *m_pTFM;
-   UINT m_nTFM; //  m_nTFM не может быть отрицательной (кол.-во эл.-тов массива), д.б. беззнаковой (UINT)
+   UINT m_nTFM; //  m_nTFM не может быть отрицательной (счетчик эл.-тов массива), д.б. беззнаковой (UINT)
 
 
 // Attributes

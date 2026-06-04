@@ -249,15 +249,15 @@ BOOL CMainDoc::OnNewDocument() // Вызывается при создании нового документа
                   ID_PORT_WORLD,              // Идентификатор команды, по которой будет вызываться OnPortWorld
                   XREQ_Q_MOVE | XREQ_TARGETS, // Запрашиваемые данные: кванты перемещения ИЛИ цели
                   g_cmdInfo.m_nID,            // Идентификатор носителя из командной строки
-                  110,                        // Неиспользуемый параметр (в старой версии)
-                  1,                          // Признак "носитель" (bCarrier = TRUE)
+                  110,                        // Алиас USV (>100 - зарезервировано для demo-версии стенда)
+                  1,                          // Признак "носитель" (bCarrier = TRUE); [0 - система]
                   IDB_SYSID,                  // Идентификатор битмапа для отображения (обычный)
                   0,                          // Идентификатор битмапа для выделенного состояния (не используется)
                   0,                          // Квант работы (0 - по умолчанию)
-                  0,                          // Дистанция столкновения (не задана)
+                  0,                          // Дистанция столкновения, км (не задана)
                   40,                         // Длина объекта, м
                   31,                         // Класс объекта
-                  48,                         // Магнитный момент
+                  48,                         // Магнитный момент, кА*м^2
                   10                          // Ширина объекта, м
                  )
       )
@@ -919,8 +919,7 @@ void CMainDoc::Move() // Главный такт расчёта динамики и логики управления
 }
 
 
-// Вспомогательная функция для расчёта изменения скорости во время циркуляции (замедление)
-void CMainDoc::SPEED_KURS_ANTRE()
+void CMainDoc::SPEED_KURS_ANTRE() // Вспомогательная функция для расчёта изменения скорости во время циркуляции (замедление)
 {
    if (!avto_exit && time_speed_kurs < time_speed_kurs_cmd)
    {
@@ -947,8 +946,7 @@ void CMainDoc::SPEED_KURS_ANTRE()
    }
 }
 
-// Вспомогательная функция для восстановления скорости после циркуляции
-void CMainDoc::SPEED_KURS_EXIT()
+void CMainDoc::SPEED_KURS_EXIT() // Вспомогательная функция для восстановления скорости после циркуляции
 {
    if (avto_exit_speed)
    {
@@ -974,7 +972,11 @@ void CMainDoc::SPEED_KURS_EXIT()
             float Y1 = MeKn * mv[V1].MATR_V[X1] + (A_ZACLAD_s - 5.0f * X1) * (MeKn * mv[V1].MATR_V[X2] - MeKn * mv[V1].MATR_V[X1]) / (5.0f * (X2 - X1));
             float Y2 = MeKn * mv[V2].MATR_V[X1] + (A_ZACLAD_s - 5.0f * X1) * (MeKn * mv[V2].MATR_V[X2] - MeKn * mv[V2].MATR_V[X1]) / (5.0f * (X2 - X1));
             v_cmd = 2.0f * m_Me.V - (Y1 + (Y2 - Y1) * (m_Me.V - 5.0f * V1) / (5.0f * (V2 - V1))) * 0.9893f; // Было * 0.98f
-         }																							// 0.9893f - коэфф. гидродинамич. сопротивл.?
+         }																							// 0.9893f - коэффициент, учитывающий снижение
+																									   // скорости на циркуляции из-за дополнительного
+																										// гидродинамического сопротивления при перекладке
+																										// руля и движении по криволинейной траектории;
+																										// эмпирический, зависит от типа судна
 
          // Интерполяция времени из таблицы MT
          float Y1 = mt[V1].MATR_T[X1] + (A_ZACLAD_s - 5.0f * X1) * (mt[V1].MATR_T[X2] - mt[V1].MATR_T[X1]) / (5.0f * (X2 - X1));
@@ -1015,8 +1017,7 @@ void CMainDoc::SPEED_KURS_EXIT()
    }
 }
 
-// Подготовка параметров для выполнения команды курса
-void CMainDoc::Comand_K()
+void CMainDoc::Comand_K() // Подготовка параметров для выполнения команды курса
 {
 	while (KURS_CMD >= 360.0f) KURS_CMD -= 360.0f; //bmw Нормализация командного курса,
    while (KURS_CMD < 0.0f)    KURS_CMD += 360.0f; //bmw если он вышел за пределы [0,360)
@@ -1082,8 +1083,7 @@ void CMainDoc::Comand_K()
    avto_exit = perechet = FALSE;
 }
 
-// Моделирование изменения курса (циркуляции)
-void CMainDoc::OnKURS()
+void CMainDoc::OnKURS() // Моделирование изменения курса (циркуляции)
 {
    dv = SPEED_CMD - m_Me.V;
    CString s;
@@ -1278,8 +1278,7 @@ void CMainDoc::OnKURS()
    }
 }
 
-// Подготовка параметров для выполнения команды скорости
-void CMainDoc::Comand_V()
+void CMainDoc::Comand_V() // Подготовка параметров для выполнения команды скорости
 {
    if (avto_exit_speed)
    {
@@ -1345,16 +1344,14 @@ void CMainDoc::Comand_V()
    rachet_pow = TRUE;
 }
 
-// Функция для расчёта торможения (используется в OnSPEED)
-float SPEED_TORM(float s, float sk1, float sk2, float sk3, float sk4, float t)
+float SPEED_TORM(float s, float sk1, float sk2, float sk3, float sk4, float t) // Функция для расчёта торможения (используется в OnSPEED)
 {
    float dv = (sk1 * s * s * s + sk2 * s * s + sk3 * s + sk4);
    if (dv < 0.01f) dv = 0.01f;
    return (s - dv * t);
 }
 
-// Моделирование изменения скорости (разгон/торможение)
-void CMainDoc::OnSPEED()
+void CMainDoc::OnSPEED() // Моделирование изменения скорости (разгон/торможение)
 {
    if (SPEED_CMD < 1.0f) SPEED_CMD = 1.0f;
    if (m_Me.V != SPEED_CMD)
@@ -1429,8 +1426,7 @@ void CMainDoc::OnSPEED()
    if (m_Me.V < 0.0f) m_Me.V = 0.0f;
 }
 
-// Интегрирование координат (перемещение)
-void CMainDoc::OnTRAEKT()
+void CMainDoc::OnTRAEKT() // Интегрирование координат (перемещение)
 {
    CString s;
    float dx = KnMe * m_Me.V * sin(m_Me.K * GrRd) * D_TIME; // Приращение X (в метрах)
@@ -1447,15 +1443,14 @@ void CMainDoc::OnTRAEKT()
    }
 }
 
-// Обработка отладочных флагов (пункты меню Debug)
-void CMainDoc::OnDebugFlags(UINT nID)
+void CMainDoc::OnDebugFlags(UINT nID) // Обработка отладочных флагов (пункты меню Debug)
 {
    ASSERT(nID >= ID_DEBUG_FIRST && nID <= ID_DEBUG_LAST);
    DWORD bit = 1 << (nID - ID_DEBUG_FIRST);
    g_dwDebugFlags ^= bit; // Переключение бита
 }
 
-void CMainDoc::OnUpdateDebugFlags(CCmdUI* pCmdUI)
+void CMainDoc::OnUpdateDebugFlags(CCmdUI* pCmdUI) // Обработка обновления отладочных флагов (пункты меню Debug)
 {
    UINT nID = pCmdUI->m_nID;
    ASSERT(nID >= ID_DEBUG_FIRST && nID <= ID_DEBUG_LAST);
@@ -1466,7 +1461,7 @@ void CMainDoc::OnUpdateDebugFlags(CCmdUI* pCmdUI)
 // Обработка данных о целях (вызывается при получении XREQ_TARGETS)
 // Преобразует полученные от сервера данные о трассах целей в другой внутренний формат (TGakForm),
 // попутно вычисляя абсолютные пеленги.
-void CMainDoc::Step(double /*r*/)
+void CMainDoc::Step(double /*r*/) // Обработка данных о целях (вызывается при получении XREQ_TARGETS)
 {
    int i;
    CString s;
@@ -1494,7 +1489,7 @@ void CMainDoc::Step(double /*r*/)
       
 		for (i = 0; i < nCount; i++) // Безопасный проход по массиву pTGF[25]
       {
-         // === ИСПРАВЛЕНИЕ №3: работаем с адресом элемента массива структур ===
+         // === ИСПРАВЛЕНИЕ №3: работа с адресом элемента массива структур ===
          // БЫЛО: pTGF[i] = new TGakForm; // УТЕЧКА
          // СТАЛО: TGakForm* pItem = &pTGF[i]; // Получаем указатель на готовую память в стеке
          TGakForm* pItem = &pTGF[i]; // Нет выхода за границы стека
@@ -1516,13 +1511,12 @@ void CMainDoc::Step(double /*r*/)
          pItem->dd = -1.0;                     // и её производная (не определены)
          pItem->time = m_pTR[i].time / 1000.0; // Время обнаружения (в секундах)
          pItem->vip = m_pTR[i].vip;            // Величины изменения: пеленга
-         pItem->vis = m_pTR[i].vis;            // и скорости (?)
+         pItem->vis = m_pTR[i].vis;            // и сигнала
       }
    }
 }
 
-// Логика поиска (вызывается из Move при type_moving == 1)
-void CMainDoc::_1_Searching()
+void CMainDoc::_1_Searching() // Логика поиска (вызывается из Move при type_moving == 1)
 {
    if (m_nTrassReport > 0)
    {
@@ -1532,6 +1526,7 @@ void CMainDoc::_1_Searching()
          if (m_pTR[i].nNum == 2) // Обнаружена ПЛ
          {
             xworld.Docs(3, "Обнаружена ПЛ D =%f", m_pTR[i].dist);
+				// xworld.Docs(33, "Обнаружена ПЛ D =%f, KU =%f", m_pTR[i].dist, m_pTR[i].teta); //bmw add
          }
          if (m_pTR[i].nNum > 5) // Обнаружена помеха (ВП)
          {
@@ -1573,8 +1568,7 @@ void CMainDoc::_1_Searching()
    }
 }
 
-// Логика наведения (type_moving == 3)
-void CMainDoc::_3_Pointing()
+void CMainDoc::_3_Pointing() // Логика наведения (type_moving == 3)
 {
    BOOL m_b_Class_VP = 0;
    if (m_nTrassReport > 0)
@@ -1642,5 +1636,5 @@ void CMainDoc::DeleteContents()
 }
 
 // Заглушки для неиспользуемых функций
-void CMainDoc::_1_Searching_PR() {}
-void CMainDoc::_3_Pointing_PR() {}
+void CMainDoc::_1_Searching_PR() {} // Заглушки для неиспользуемых функций
+void CMainDoc::_3_Pointing_PR() {} // Заглушки для неиспользуемых функций
