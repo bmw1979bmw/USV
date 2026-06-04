@@ -1,0 +1,8 @@
+IDR_POPUP_GRAPH_WND MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Инфо",                        ID_POPUP_INFO
+    END
+END
+
